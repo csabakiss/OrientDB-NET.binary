@@ -52,10 +52,13 @@ namespace Orient.Client.Protocol.Operations
         }
         protected bool EndOfStream(BinaryReader reader)
         {
-            BindingFlags flags = BindingFlags.Instance | BindingFlags.NonPublic;
-            var length = (Int32)typeof(NetworkStream).GetTypeInfo().GetField("_readLen", flags).GetValue(reader.BaseStream);
-            var pos = (Int32)typeof(NetworkStream).GetTypeInfo().GetField("_readPos", flags).GetValue(reader.BaseStream);
-            return length == pos;
+            return reader.BaseStream.Position == reader.BaseStream.Length;
+
+            //// WTF?
+            ////BindingFlags flags = BindingFlags.Instance | BindingFlags.NonPublic;
+            ////var length = (Int32)typeof(NetworkStream).GetTypeInfo().GetField("_readLen", flags).GetValue(reader.BaseStream);
+            ////var pos = (Int32)typeof(NetworkStream).GetTypeInfo().GetField("_readPos", flags).GetValue(reader.BaseStream);
+            ////return length == pos;
         }
     }
 }

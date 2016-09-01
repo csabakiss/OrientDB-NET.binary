@@ -6,7 +6,7 @@ using NUnit.Framework;
 using Orient.Client;
 using Orient.Client.API.Types;
 
-namespace Orient.Nunit.Test
+namespace Orient.Nunit.Test.Serialization
 {
     [TestFixture]
     public class ServerOperationsTests

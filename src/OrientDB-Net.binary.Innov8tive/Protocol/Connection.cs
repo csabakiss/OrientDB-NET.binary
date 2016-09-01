@@ -12,9 +12,7 @@ namespace Orient.Client.Protocol
     {
         private TcpClient _socket;
         private NetworkStream _networkStream;
-        private byte[] _readBuffer;
-        private int RECIVE_TIMEOUT = 30 * 1000; // Recive timeout in milliseconds
-        private const int RetryCount = 3;
+        private byte[] _readBuffer;                
 
         internal string Hostname { get; set; }
         internal int Port { get; set; }
@@ -124,7 +122,7 @@ namespace Orient.Client.Protocol
         {
             Exception _lastException = null;
 
-            var i = RetryCount;
+            var i = Configuration.RetryCount;
             while (i-- > 0)
             {
                 try
@@ -289,7 +287,7 @@ namespace Orient.Client.Protocol
                 var client = new TcpClient();
 
                 Socket = new TcpClient();
-                Socket.ReceiveTimeout = RECIVE_TIMEOUT;
+                Socket.ReceiveTimeout = Configuration.Timeout;
                 Socket.ConnectAsync(Hostname, Port).GetAwaiter().GetResult();
             }
             catch (SocketException ex)
@@ -324,7 +322,7 @@ namespace Orient.Client.Protocol
             try
             {
                 Socket = new TcpClient();
-                Socket.ReceiveTimeout = RECIVE_TIMEOUT;
+                Socket.ReceiveTimeout = Configuration.Timeout;
                 Socket.ConnectAsync(Hostname, Port).GetAwaiter().GetResult();
             }
             catch (SocketException ex)

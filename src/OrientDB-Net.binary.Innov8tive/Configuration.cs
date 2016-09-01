@@ -21,7 +21,7 @@
         static Configuration()
         {
             timeout = 60 * 1000;
-            RetryCount = 0;
+            RetryCount = 1;
         }
 
         /// <summary>

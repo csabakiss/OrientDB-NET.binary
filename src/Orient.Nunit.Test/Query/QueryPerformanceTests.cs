@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using NUnit.Framework;
 using Orient.Client;
 
-namespace Orient.Tests
+namespace Orient.Nunit.Test.Query
 {
     /// <summary>
     /// Test class to run some parallel queries and measure the execution duration.
@@ -14,7 +14,7 @@ namespace Orient.Tests
     /// The operations are covered by other test cases.
     /// </remarks>
     [TestFixture]
-    [Ignore]
+    [Ignore("Should be enabled when testing performance tuning changes.")]
     [Category("performance")]
     public class QueryPerformanceTests
     {

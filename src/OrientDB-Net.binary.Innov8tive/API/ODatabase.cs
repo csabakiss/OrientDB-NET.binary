@@ -40,8 +40,6 @@ namespace Orient.Client
             }
         }
 
-        public OTransaction Transaction { get; private set; }
-
         internal Connection GetConnection()
         {
             return _connection;
@@ -53,7 +51,6 @@ namespace Orient.Client
             _connection.Database = this;
             _containsConnection = true;
             ClientCache = new Dictionary<ORID, ODocument>();
-            Transaction = new OTransaction(_connection);
         }
 
         public int ProtocolVersion
@@ -66,9 +63,7 @@ namespace Orient.Client
             return Task.Factory.StartNew(() =>
             {
                 var document = Load.ORID(new ORID(0, 0)).Run();
-
-                byte[] rawByte = document.GetField<byte[]>("RawBytes");
-                var str = Encoding.UTF8.GetString(rawByte,0,rawByte.Length);
+                var str = Encoding.UTF8.GetString(document.GetField<byte[]>("RawBytes"));
                 var values = str.Split(new[] { '|' }, StringSplitOptions.RemoveEmptyEntries);
                 var doc = new ODocument();
                 doc.SetField("Version", values[0]);
@@ -105,6 +100,11 @@ namespace Orient.Client
                 oCluster = GetClusters().FirstOrDefault(x => x.Id == clusterId);
             }
             return oCluster.Name;
+        }
+
+        public OTransaction CreateTransaction()
+        {
+            return new OTransaction(_connection);
         }
 
         private string CorrectClassName(string className)

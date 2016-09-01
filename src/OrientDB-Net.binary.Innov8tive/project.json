@@ -8,24 +8,24 @@
     "projectUrl": "https://github.com/Innov8tiveSoftware/OrientDB-NET.binary",
     "licenseUrl": "http://opensource.org/licenses/MIT"
     },
-    "frameworks": {
-      "net451": {
-        "System.Runtime": ""
-      },
-      "netstandard1.5": {
-        "imports": "dnxcore50",
-        "dependencies": {
-          "NETStandard.Library": "1.6.0",
-          "Microsoft.CSharp": "4.0.1",
-          "System.Collections": "4.0.11",
-          "System.Collections.Concurrent": "4.0.12",
-          "System.Linq": "4.1.0",
-          "System.Threading": "4.0.11",
-          "System.Net.Sockets": "4.1.0",
-          "System.Reflection.Extensions": "4.0.1",
-          "System.Numerics.Vectors": "4.1.1",
-          "System.IO": "4.1.0"
-        }
+  "frameworks": {
+    "net451": {
+      "System.Runtime": ""
+    },
+    "netstandard1.5": {
+      "imports": "dnxcore50",
+      "dependencies": {
+        "NETStandard.Library": "1.6.0",
+        "Microsoft.CSharp": "4.0.1",
+        "System.Collections": "4.0.11",
+        "System.Collections.Concurrent": "4.0.12",
+        "System.Linq": "4.1.0",
+        "System.Threading": "4.0.11",
+        "System.Net.Sockets": "4.1.0",
+        "System.Reflection.Extensions": "4.0.1",
+        "System.Numerics.Vectors": "4.1.1",
+        "System.IO": "4.1.0"
       }
     }
-  }
+  },
+ }

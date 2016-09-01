@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using NUnit.Framework;
 using Orient.Client;
 
-namespace Orient.Tests.Query
+namespace Orient.Nunit.Test.Query
 {
     [TestFixture]
     public class SqlUpdateWithEmbeddedLinkedClass
